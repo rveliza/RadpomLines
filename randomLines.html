@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inrtro to Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1300" height="600" style="border: 1px solid black;">Hello</canvas>
+
+<script>
+    const width = 1300;
+    const height = 600;
+
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+ 
+    ctx.translate(width/2, height/2);
+
+    posX = 0;
+    posY = 0;
+
+    ctx.moveTo(posX, posY)
+    for (i = 0; i < 10000000; i++) {
+        let randomX = Math.floor(Math.random() * 1.05) ;
+        let randomY = Math.floor(Math.random() * 1.05);
+        let sign = Math.floor(Math.random() * 2);
+        
+        if (sign === 1) {
+            posX += randomX * -1;
+            posY += randomY * -1;
+        } else {
+            posX += randomX;
+            posY += randomY;
+        }
+        ctx.lineTo(posX, posY);
+    }
+
+    ctx.stroke();
+
+
+</script>
+
+
+</body>
+</html>
